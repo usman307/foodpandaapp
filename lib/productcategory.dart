@@ -12,7 +12,7 @@ class productcategory extends StatefulWidget {
 class _productcategoryState extends State<productcategory> {
   @override
   Widget build(BuildContext context) {
-    print('data');
+
     return SafeArea(
       child: Scaffold(
         //     backgroundColor: Colors.white,
