@@ -12,6 +12,7 @@ class productcategory extends StatefulWidget {
 class _productcategoryState extends State<productcategory> {
   @override
   Widget build(BuildContext context) {
+    print('data');
     return SafeArea(
       child: Scaffold(
         //     backgroundColor: Colors.white,
@@ -22,7 +23,7 @@ class _productcategoryState extends State<productcategory> {
               child: Container(
                 height: 300,
                 decoration: BoxDecoration(
-                  //  color: Colors.red,
+                    color: Colors.red,
 
                   image: DecorationImage(image: AssetImage('assets/sandwich.jpg'),fit: BoxFit.contain),
                 ),
