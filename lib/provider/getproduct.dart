@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../productmodel.dart';
 
 class productprovider with ChangeNotifier{
+
   List<productmodel> _productlist =[];
 List<productmodel> get getproductlist => _productlist;
 

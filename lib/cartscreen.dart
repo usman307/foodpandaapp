@@ -24,75 +24,76 @@ class _cartscreenState extends State<cartscreen> {
        debugShowCheckedModeBanner: false,
        home: SafeArea(
          child: Scaffold(
+           appBar: AppBar(
+             title: Text('Your Cart Details'),
+             centerTitle: true,
+           ),
            body: Column(
             children: [
-
-Expanded(
-  child:   Container(
-    child:   FutureBuilder(
-               future: Future.value(providerofcart.cartitems),
-               builder: (context,snapshot){
-       if(!snapshot.hasData){
-         return Center(child: CircularProgressIndicator());
-       }
+SizedBox(height: 15,),
+FutureBuilder(
+           future: Future.value(providerofcart.cartitems),
+           builder: (context,snapshot){
+   if(!snapshot.hasData){
+     return Center(child: CircularProgressIndicator());
+   }
 else if(snapshot.connectionState==ConnectionState.waiting){
-  return Text('please wait');
-       }
-      else if (snapshot.hasData){
-        return  ListView.builder(
+return Text('please wait');
+   }
+  else if (snapshot.hasData){
+    return  Column(
+      children: [
+        SizedBox(
+          height:300,
+          child: Container(
 
-             itemCount: snapshot.data!.length,
+            child: ListView.builder(
+              itemCount: snapshot.data!.length,
+                itemBuilder: (context,index){
+               final cartitemlist = snapshot.data![index];
+               print(cartitemlist);
+                return Container(
+                  height: 150,
+                  child: Card(
+                    elevation: 1,
+                    child: Stack(
+                      children: [
+                        Positioned(
+right:10,
+                          bottom: 10,
+                          child: Image.asset( height:150,
+                              width:200,
 
-            itemBuilder: (context,index){
 
-          final caritems =snapshot.data![index];
+                              cartitemlist.cartimages.toString(),fit: BoxFit.cover,) ,
+                        ),
+                        // Positioned(
+                        //     top: 50,
+                        //     child: Column(
+                        //       children: [
+                        //         Text(cartitemlist.cartname.toString(),style: TextStyle(fontSize: 17,),),
+                        //         Text('Price '+cartitemlist.cartprice.toString())
+                        //       ],
+                        //     )),
 
-          return ListTile(
 
-            title: Text(caritems.cartprice.toString()),
-
-          );
-
-        });
-
-
-      }
+                      ],
+                    ),
+                  ),
+                );
+                }),
+          ),
+        ),
+        SizedBox(height: 50,),
+        Text('cart price',style: TextStyle(fontWeight:FontWeight.bold,fontSize: 18),),
+      ],
+    ) ;
+  }
 else{
-  return Text('something occurs');
-      }
+return Text('something occurs');
+  }
 
-         })
-
-
-
-
-
-  ),
-)
-
-//
-//
-//         //           child: FutureBuilder(
-//         //           future:_getCartLength() ,
-//         //   builder: (BuildContext context, AsyncSnapshot snapshot) {
-//         //     if (snapshot.hasData) {
-//         //
-//         //           return ListView.builder(itemBuilder: (context,index){
-//         //           //  final pro = providerofcart.storeitemincart[index];
-//         //             return ListTile(
-//         //               title: Text(''),
-//         //             );
-//         //
-//         //
-//         //           });
-//         //     } else if (snapshot.hasError) {
-//         //           // Future encountered an error, so display error message
-//         //           return Text('Error: ${snapshot.error}');
-//         //     } else {
-//         //           // Future is still resolving (loading), so display progress indicator
-//         //           return CircularProgressIndicator();
-
-//         }
+     })
    ]
            )
    )

@@ -80,61 +80,61 @@ flex: 2,
        return Center(child: CircularProgressIndicator());
     }
      else if(snapshot.hasData){
-    //    return  GridView.builder(
-    //    itemCount: snapshot.data!.length,
-    // gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    // mainAxisSpacing: 4,
-    //
-    // crossAxisCount: (orientation == Orientation.portrait) ? 1 :4),  itemBuilder: (buildcontext,int index){
-    // final productdata = snapshot.data![index];
-    // return Padding(
-    // padding: const EdgeInsets.all(8.0),
-    // child:   Card(
-    // shadowColor: Colors.pink,
-    //
-    //
-    // child: Column(
-    // children: [
-    // GridTile(
-    //
-    // child:  Image.asset(productdata.productimages.toString()),
-    // ),
-    // Row(
-    // children: [
-    // Padding(
-    // padding: const EdgeInsets.symmetric(horizontal: 10),
-    // child: Image.asset('assets/bicycle-rider.png',width: 32,height:30,),
-    // ),
-    // Image.asset('assets/rating.png',width: 62,height: 60,color: Colors.pink,),
-    //
-    // Transform.translate(
-    // offset:Offset(130,0)  ,
-    //
-    // child: Container(
-    // padding: EdgeInsets.only(left: 16),
-    // height:40,
-    // width:130,
-    // child: loginbutton(name: 'Add to Cart', onTap: (){
-    // Cartprovider.addtocart(productdata);
-    //
-    //
-    // })),
-    // ),
-    //
-    // ],
-    // )
-    //
-    //
-    // ],
-    // ),
-    //
-    // ),
-    // );
-    //
-    //
-    //
-    // }
-    // );
+       return  GridView.builder(
+       itemCount: snapshot.data!.length,
+    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+    mainAxisSpacing: 4,
+
+    crossAxisCount: (orientation == Orientation.portrait) ? 1 :4),  itemBuilder: (buildcontext,int index){
+    final productdata = snapshot.data![index];
+    return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child:   Card(
+    shadowColor: Colors.pink,
+
+
+    child: Column(
+    children: [
+    GridTile(
+
+    child:  Image.asset(productdata.productimages.toString()),
+    ),
+    Row(
+    children: [
+    Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 10),
+    child: Image.asset('assets/bicycle-rider.png',width: 32,height:30,),
+    ),
+    Image.asset('assets/rating.png',width: 62,height: 60,color: Colors.pink,),
+
+    Transform.translate(
+    offset:Offset(130,0)  ,
+
+    child: Container(
+    padding: EdgeInsets.only(left: 16),
+    height:40,
+    width:130,
+    child: loginbutton(name: 'Add to Cart', onTap: (){
+    Cartprovider.addtocart(productdata);
+
+
+    })),
+    ),
+
+    ],
+    )
+
+
+    ],
+    ),
+
+    ),
+    );
+
+
+
+    }
+    );
 
     }
      return Text('something went wrong');

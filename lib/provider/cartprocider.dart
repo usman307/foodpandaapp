@@ -32,14 +32,13 @@ List<cartmodel> _getcartitem=[];
 List<cartmodel> get cartitems => _getcartitem;
 Future<dynamic >getcartitems() async{
   final user = FirebaseAuth.instance.currentUser;
-  final id = DateTime.now().millisecondsSinceEpoch.toString();
+ // final id = DateTime.now().millisecondsSinceEpoch.toString();
   final firebase  = await FirebaseFirestore.instance.collection('cartmodel').get();
 
  _getcartitem = firebase.docs.map((e) => cartmodel(cartimages: e['cartimages'], cartid: e['cartid'],
      cartname: e['cartname'], cartprice: e['cartprice'], cartquantity: e['cartquantity'])).toList();
 
-print(firebase);
-print(cartitems);
+
 
 notifyListeners();
 }
